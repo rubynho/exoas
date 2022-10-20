@@ -1,18 +1,18 @@
 defmodule Exoas do
   @moduledoc """
-  Documentation for `Exoas`.
+  Exoas is a lib meant to be used to render and edit OpenAPI Specification files.
   """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Exoas.hello()
-      :world
-
+  I don't know yet.
   """
-  def hello do
-    :world
+  def run(file_path) do
+    result =
+      file_path
+      |> File.read()
+      |> case do
+        {:ok, content} -> Jason.decode(content)
+        {:error, _error} = error -> error
+      end
   end
 end
